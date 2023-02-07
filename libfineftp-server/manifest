@@ -1,13 +1,13 @@
 : 1
 name: libfineftp-server
-version: 0.1.0-a.0.z
+version: 1.3.4-a.0.z
 project: fineftp-server
 summary: fineftp-server C++ library
-license: other: proprietary ; Not free/open source.
+license: MIT
 description-file: README.md
-url: https://example.org/fineftp-server
-email: helmesjo@gmail.com
-#build-error-email: helmesjo@gmail.com
+url: https://github.com/eclipse-ecal/fineftp-server
+# email:
+#build-error-email:
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
-#depends: libhello ^1.0.0
+depends: libboost-asio ^1.78.0

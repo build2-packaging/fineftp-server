@@ -1,6 +1,6 @@
 intf_libs = # Interface dependencies.
 impl_libs = # Implementation dependencies.
-#import xxxx_libs += libhello%lib{hello}
+import impl_libs += libboost-asio%lib{boost_asio}
 
 # Public headers.
 #
@@ -14,10 +14,34 @@ lib{fineftp-server}: $pub/{$pub_hdrs}
 
 # Private headers and sources as well as dependencies.
 #
-lib{fineftp-server}: {hxx cxx}{**} $impl_libs $intf_libs
+lib{fineftp-server}: {hxx cxx}{**} {hxx}{**.hpp} $impl_libs $intf_libs
 
 # Build options.
 #
+
+sys_libs = [strings]
+switch $cxx.target.class, $cxx.target.system
+{
+  case 'windows', 'mingw32'
+    sys_libs += -lws2_32 -lwsock32
+  case 'windows'
+    sys_libs += ws2_32.lib wsock32.lib
+  case 'linux'
+    sys_libs += -pthread
+}
+switch $cxx.target.class
+{
+  case 'windows'
+  {
+    cxx.poptions =+  \
+      -D_WIN32_WINNT=0x0601 \
+      -DWIN32
+  }
+}
+
+cxx.libs += $sys_libs
+cxx.poptions =+ -D__USE_FILE_OFFSET64=1
+
 out_pfx_inc = [dir_path] $out_root/include/
 src_pfx_inc = [dir_path] $src_root/include/
 out_pfx_src = [dir_path] $out_root/src/
@@ -34,7 +58,7 @@ cxx.poptions =+ "-I$out_pfx_src" "-I$src_pfx_src" \
 lib{fineftp-server}:
 {
   cxx.export.poptions = "-I$out_pfx_inc" "-I$src_pfx_inc"
-  cxx.export.libs = $intf_libs
+  cxx.export.libs = $intf_libs $sys_libs
 }
 
 liba{fineftp-server}: cxx.export.poptions += -DFINEFTP_STATIC
