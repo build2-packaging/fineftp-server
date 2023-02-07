@@ -1,0 +1,7 @@
+project = libfineftp-server
+
+using version
+using config
+using test
+using install
+using dist

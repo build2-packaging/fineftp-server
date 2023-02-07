@@ -1,0 +1,3 @@
+import libs = libfineftp-server%lib{fineftp-server}
+
+exe{driver}: {hxx cxx}{**} $libs testscript{**}
