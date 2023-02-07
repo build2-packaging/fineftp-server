@@ -1,3 +1,1 @@
-# libfineftp-server
-
-C++ library
+../upstream/README.md
