@@ -1,8 +1,8 @@
 using in
 
-pub_hdrs = hxx{**}
+pub_hdrs = hxx{** -fineftp_version}
 
-./: $pub_hdrs
+./: $pub_hdrs hxx{fineftp_version}
 
 hxx{fineftp_version}: in{fineftp_version} $src_root/manifest
 {
