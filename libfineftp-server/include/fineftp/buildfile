@@ -6,7 +6,11 @@ pub_hdrs = hxx{** -fineftp_version}
 
 hxx{fineftp_version}: in{fineftp_version} $src_root/manifest
 {
-  flavor = cmake
+  in.symbol = '@'
+
+  PROJECT_VERSION_MAJOR = $version.major
+  PROJECT_VERSION_MINOR = $version.minor
+  PROJECT_VERSION_PATCH = $version.patch
 }
 hxx{fineftp_export}@./: cxx.importable = false
 
