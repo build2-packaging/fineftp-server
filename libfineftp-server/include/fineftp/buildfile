@@ -8,7 +8,7 @@ hxx{fineftp_version}: in{fineftp_version} $src_root/manifest
 {
   flavor = cmake
 }
-hxx{finftp_export}@./: cxx.importable = false
+hxx{fineftp_export}@./: cxx.importable = false
 
 # Install into the fineftp/ subdirectory of, say, /usr/include/
 # recreating subdirectories.
