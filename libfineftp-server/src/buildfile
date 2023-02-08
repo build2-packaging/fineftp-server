@@ -58,7 +58,7 @@ cxx.poptions =+ "-I$out_pfx_src" "-I$src_pfx_src" \
 lib{fineftp-server}:
 {
   cxx.export.poptions = "-I$out_pfx_inc" "-I$src_pfx_inc"
-  cxx.export.libs = $intf_libs $sys_libs
+  cxx.export.libs = $intf_libs $sys_libs # @@ Feels like we shouldn't need to export sys_libs.
 }
 
 liba{fineftp-server}: cxx.export.poptions += -DFINEFTP_STATIC

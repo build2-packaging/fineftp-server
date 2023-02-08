@@ -2,7 +2,7 @@
 name: libfineftp-server
 version: 1.3.4-a.0.z
 project: fineftp-server
-summary: fineftp-server C++ library
+summary: C++ FTP server library
 license: MIT
 description-file: README.md
 url: https://github.com/eclipse-ecal/fineftp-server
