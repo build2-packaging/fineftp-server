@@ -1,6 +1,6 @@
 intf_libs = # Interface dependencies.
 impl_libs = # Implementation dependencies.
-import impl_libs += libboost-asio%lib{boost_asio}
+import impl_libs += libasio%lib{asio}
 
 # Public headers.
 #

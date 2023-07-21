@@ -8,6 +8,6 @@ description-file: README.md
 url: https://github.com/eclipse-ecal/fineftp-server
 # email:
 #build-error-email:
-depends: * build2 >= 0.15.0
-depends: * bpkg >= 0.15.0
-depends: libboost-asio ^1.78.0
+depends: * build2 >= 0.16.0
+depends: * bpkg >= 0.16.0
+depends: libasio ^1.28.0
