@@ -1,6 +1,6 @@
 : 1
 name: libfineftp-server
-version: 1.3.5-a.0.z
+version: 1.3.4
 project: fineftp-server
 summary: C++ FTP server library
 license: MIT
