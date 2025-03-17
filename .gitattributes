@@ -3,6 +3,8 @@
 # in the working tree and to LF in the repository.
 #
 * text=auto
+./libfineftp-server/src/unix symlink=dir
+./libfineftp-server/src/win32 symlink=dir
 
 # Use `eol=crlf` for files that should have the CRLF line ending both in the
 # working tree (even on Unix) and in the repository.

@@ -14,7 +14,9 @@ lib{fineftp-server}: $pub/{$pub_hdrs}
 
 # Private headers and sources as well as dependencies.
 #
-lib{fineftp-server}: {hxx cxx}{**} {hxx}{**.hpp} $impl_libs $intf_libs
+lib{fineftp-server}: {hxx cxx}{** -unix/* -win32/*} $impl_libs $intf_libs
+lib{fineftp-server}: {hxx cxx}{unix/*} : include=($cxx.target.class!='windows')
+lib{fineftp-server}: {hxx cxx}{win32/*} : include=($cxx.target.class=='windows')
 
 # Build options.
 #
@@ -29,15 +31,6 @@ switch $cxx.target.class, $cxx.target.system
   case 'linux'
     sys_libs += -pthread
 }
-switch $cxx.target.class
-{
-  case 'windows'
-  {
-    cxx.poptions =+  \
-      -D_WIN32_WINNT=0x0601 \
-      -DWIN32
-  }
-}
 
 cxx.libs += $sys_libs
 cxx.poptions =+ -D__USE_FILE_OFFSET64=1
@@ -48,7 +41,24 @@ out_pfx_src = [dir_path] $out_root/src/
 src_pfx_src = [dir_path] $src_root/src/
 
 cxx.poptions =+ "-I$out_pfx_src" "-I$src_pfx_src" \
-                "-I$out_pfx_inc" "-I$src_pfx_inc"
+                "-I$out_pfx_inc" "-I$src_pfx_inc"  
+
+switch $cxx.target.class
+{
+  case 'windows'
+  {
+    cxx.poptions =+  \
+      -D_WIN32_WINNT=0x0601 \
+      -DWIN32 \
+      "-I$src_pfx_src/win32"
+  }
+  default
+  {
+    cxx.poptions =+  \
+      "-I$src_pfx_src/unix"
+  }
+    
+}
 
 {hbmia obja}{*}: cxx.poptions += -DFINEFTP_STATIC_BUILD
 {hbmis objs}{*}: cxx.poptions += -DFINEFTP_SHARED_BUILD
