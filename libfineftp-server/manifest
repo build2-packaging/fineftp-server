@@ -1,6 +1,6 @@
 : 1
 name: libfineftp-server
-version: 1.5.1-a.0.z
+version: 1.5.1
 project: fineftp-server
 summary: FineFTP is a minimal FTP server library for Windows and Unix flavors.
 license: MIT
