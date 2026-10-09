@@ -2,11 +2,13 @@
 name: libfineftp-server
 version: 1.6.0-a.0.z
 project: fineftp-server
-summary: FineFTP is a minimal FTP server library for Windows and Unix flavors.
+summary: FTP server library for Windows and Unix flavors
 license: MIT
 description-file: README.md
 package-description-file: PACKAGE-README.md
 url: https://github.com/eclipse-ecal/fineftp-server
+package-url: https://github.com/build2-packaging/fineftp-server
+package-email: packaging@build2.org
 depends: * build2 >= 0.16.0
 depends: * bpkg >= 0.16.0
 depends: libasio ^1.28.0
