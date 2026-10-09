@@ -1,0 +1,6 @@
+: 1
+name: libfineftp-server
+version: 1.6.0
+project: fineftp-server
+summary: FTP server library for Windows and Unix flavors
+license: MIT
