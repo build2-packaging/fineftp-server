@@ -1,19 +1,36 @@
-# fineFTP Server
+# libfineftp-server - FTP server library for Windows and Unix flavors
 
-This project builds and defines the build2 package for the [fineFTP Server](https://github.com/eclipse-ecal/fineftp-server) library.
+This is a `build2` package for the
+[`fineftp-server`](https://github.com/eclipse-ecal/fineftp-server)
+C++ library. It provides a minimal FTP server for Windows and Unix flavors
+that can be embedded into an application.
 
-The packaging code is licensed under the MIT License, the upstream artifacts are licensed under the terms and conditions of fineFTP Server.
 
 ## Usage
 
-You can simply add this package as dependency to your project by specifying it in your `manifest`:
+To start using `libfineftp-server` in your project, add the following `depends`
+value to your `manifest`, adjusting the version constraint as appropriate:
 
 ```
-depends: libfineftp-server ^1.3.4
+depends: libfineftp-server ^1.6.0
 ```
 
-Then just pick the targets that you need:
+Then import the library in your `buildfile`:
 
 ```
-import libs  = libfineftp-server%lib{fineftp-server}
+import libs = libfineftp-server%lib{fineftp-server}
 ```
+
+
+## Importable targets
+
+This package provides the following importable targets:
+
+```
+lib{fineftp-server}
+```
+
+
+## Configuration variables
+
+This package provides no configuration variables.
