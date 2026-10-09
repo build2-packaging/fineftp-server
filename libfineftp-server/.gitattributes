@@ -1,0 +1,2 @@
+src/unix symlink=dir
+src/win32 symlink=dir
