@@ -49,7 +49,6 @@ switch $cxx.target.class
   {
     cxx.poptions =+  \
       -D_WIN32_WINNT=0x0601 \
-      -DWIN32 \
       "-I$src_pfx_src/win32"
   }
   default
